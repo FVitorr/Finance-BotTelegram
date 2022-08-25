@@ -25,7 +25,7 @@ def set(mensagem):
     bot.reply_to(mensagem,msg)
 
 @bot.message_handler(commands=["ext"])
-def set(mensagem):
+def ext(mensagem):
     #sent = com.sep(mensagem.text[mensagem.text.index("ext") + 3:])
     #text_ = log.object(float(ent[0]) * -1,ent[1])
     try:
@@ -47,6 +47,24 @@ def set(mensagem):
         bot.reply_to(mensagem," Sucesso :)")
     except:
         bot.reply_to(mensagem," Entrada Invalida :(")
+
+@bot.message_handler(commands=["cof"])
+def cof(mensagem):
+    #sent = com.sep(mensagem.text[mensagem.text.index("ext") + 3:])
+    #text_ = log.object(float(ent[0]) * -1,ent[1])
+    print(mensagem.text[mensagem.text.index("cof") + 3:])
+    try:
+        entry = mensagem.text[mensagem.text.index("cof") + 3:]
+        entry += '-d VarSystem'
+        ent = com.sep(entry)
+        print(ent)
+        text_ = log.object(float(ent[0]) * -1,ent[1])
+        #Salvar entrada no log
+        log.writeLog(str(text_) + '\n')
+        bot.reply_to(mensagem," Sucesso :)")
+    except:
+        bot.reply_to(mensagem," Entrada Invalida :(")
+
 
 @bot.message_handler(commands=["rel"])
 def rel(mensagem):

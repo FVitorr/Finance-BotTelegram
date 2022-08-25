@@ -46,9 +46,9 @@ class log:
         if (date == None):
         #Criar dicionario de dados
             file = self.readLog()
-            dat = [i["Date"] for i in file]
-            val = [i["Valor"] for i in file]
-            des = [i["Desc"] for i in file]
+            dat = [i["Date"] for i in file if i["Desc"] != "VarSystem"]
+            val = [i["Valor"] for i in file if i["Desc"] != "VarSystem"]
+            des = [i["Desc"] for i in file if i["Desc"] != "VarSystem"]
 
             d["Data"] = dat
             d["Valor"] = val
